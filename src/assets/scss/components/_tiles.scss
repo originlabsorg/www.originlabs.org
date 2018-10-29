@@ -24,17 +24,16 @@
 				'filter 1s ease',
 				'-webkit-filter 1s ease'
 			));
-			@include padding(4em, 4em);
+			padding-top: 23em;
+			padding-left: 2em;
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
 			cursor: default;
-			height: 40vh;
-			max-height: 40em;
-			min-height: 23em;
+			height: 0em;
 			overflow: hidden;
 			position: relative;
-			width: 40%;
+			width: 100%;
 
 			.image {
 				display: none;
@@ -72,7 +71,7 @@
 				display: block;
 				height: 100%;
 				left: 0;
-				opacity: 0.85;
+				opacity: 0.65;
 				position: absolute;
 				width: 100%;
 				z-index: 2;
@@ -102,72 +101,54 @@
 				opacity: 0;
 			}
 
-			&:nth-child(4n - 1),
-			&:nth-child(4n - 2) {
-				width: 60%;
+			&:nth-child(n) {
+				width: 100%;
 			}
 
-			&:nth-child(6n - 5) {
-				&:before {
-					background-color: _palette(accent1);
-				}
-			}
 
-			&:nth-child(6n - 4) {
-				&:before {
-					background-color: _palette(accent2);
-				}
-			}
-
-			&:nth-child(6n - 3) {
-				&:before {
-					background-color: _palette(accent3);
-				}
-			}
-
-			&:nth-child(6n - 2) {
+			&:nth-child(3n - 3) {
 				&:before {
 					background-color: _palette(accent4);
 				}
 			}
 
-			&:nth-child(6n - 1) {
+			&:nth-child(3n - 2) {
 				&:before {
 					background-color: _palette(accent5);
 				}
 			}
 
-			&:nth-child(6n) {
+			&:nth-child(3n - 1) {
 				&:before {
 					background-color: _palette(accent6);
 				}
 			}
+
 		}
 
 		@include breakpoint(large) {
 			article {
-				@include padding(4em, 3em);
-				height: 30vh;
-				max-height: 30em;
-				min-height: 20em;
+				padding-top: 1em;
+				padding-left: 2em;
 			}
 		}
 
 		@include breakpoint(medium) {
 			article {
-				width: 50% !important;
+				padding-top: 1em;
+				padding-left: 1em;
+			  height: 20em;
+				width: 100% !important;
 			}
 		}
 
 		@include breakpoint(small) {
 			article {
-				@include padding(3em, 1.5em);
-				height: 16em;
-				max-height: none;
-				min-height: 0;
-
+				padding-top: 1em;
+				padding-left: 1em;
+			  height: 15em;
 				h3 {
-					font-size: 1.5em;
+					font-size: 1em;
 				}
 			}
 		}
@@ -176,8 +157,13 @@
 			display: block;
 
 			article {
-				height: 20em;
+				padding-top: 1em;
+				padding-left: 1em;
+			  height: 10em;
 				width: 100% !important;
+				h3 {
+					font-size: 1em;
+				}
 			}
 		}
 	}
