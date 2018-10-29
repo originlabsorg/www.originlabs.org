@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import '../assets/scss/main.scss'
 import Header from './Header'
@@ -12,14 +13,14 @@ class Layout extends React.Component {
         super(props)
         this.state = {
             isMenuVisible: false,
-            loading: 'is-loading'
+            loading: true
         }
         this.handleToggleMenu = this.handleToggleMenu.bind(this)
     }
 
     componentDidMount () {
         this.timeoutId = setTimeout(() => {
-            this.setState({loading: ''});
+            this.setState({loading: false});
         }, 100);
     }
 
@@ -36,13 +37,18 @@ class Layout extends React.Component {
     }
 
     render() {
-        const { children } = this.props
+        const { isMenuVisible, loading } = this.state;
 
         return (
-            <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
+            <div
+                className={classNames('body', {
+                    'is-menu-visible': isMenuVisible,
+                    'is-loading': loading
+                })}
+            >
                 <div id="wrapper">
                     <Header onToggleMenu={this.handleToggleMenu} />
-                    {children}
+                    {this.props.children}
                     <Contact />
                     <Footer />
                 </div>
@@ -51,5 +57,14 @@ class Layout extends React.Component {
         )
     }
 }
+
+Layout.propTypes = {
+    children: PropTypes.node
+}
+
+Layout.defaultProps = {
+    children: null
+}
+
 
 export default Layout

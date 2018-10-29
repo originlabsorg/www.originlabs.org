@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Footer = (props) => (
+const Footer = () => (
     <footer id="footer">
         <div className="inner">
             <ul className="icons">
@@ -9,7 +9,7 @@ const Footer = (props) => (
                 <li><a href="#" className="icon alt fa-linkedin"><span className="label">LinkedIn</span></a></li>
             </ul>
             <ul className="copyright">
-                <li>&copy; Origin Labs 2018</li>
+                <li>&copy; {`Origin Labs ${new Date().getFullYear()}`}</li>
             </ul>
         </div>
     </footer>

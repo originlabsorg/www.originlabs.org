@@ -1,3 +1,6 @@
+#IDE
+.history
+
 # Project dependencies
 .cache
 node_modules

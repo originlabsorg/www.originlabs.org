@@ -1,7 +1,7 @@
 import React from 'react'
 // import logo from '../assets/images/logo.png'
 
-const Banner = (props) => (
+const Banner = () => (
     <section id="banner" className="major">
         <div className="inner">
             <header className="major" style={headerStyle}>
