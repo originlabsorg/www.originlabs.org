@@ -1,19 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
-import '../assets/scss/main.scss'
-import Header from './Header'
-import Menu from './Menu'
 import Contact from './Contact'
 import Footer from './Footer'
+import '../assets/scss/main.scss'
 
 class Layout extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            loading: true
-        }
+    state = {
+        loading: true
     }
 
     componentDidMount () {
@@ -29,12 +23,10 @@ class Layout extends React.Component {
     }
 
     render() {
-        const { isMenuVisible, loading } = this.state;
-
         return (
             <div
                 className={classNames('body', {
-                    'is-loading': loading
+                    'is-loading': this.state.loading
                 })}
             >
                 <div id="wrapper">
@@ -54,6 +46,5 @@ Layout.propTypes = {
 Layout.defaultProps = {
     children: null
 }
-
 
 export default Layout
