@@ -39,12 +39,6 @@
 				display: none;
 			}
 
-			&:nth-child(2) {
-				header {
-					right: 2em;
-				}
-			}
-			
 			header {
 				position: absolute;
 				bottom: 0em;
@@ -59,6 +53,13 @@
 						color: inherit !important;
 					}
 				}
+			}
+
+			.description {
+				position: absolute;
+				width: 20em;
+				bottom: 8em;
+				z-index: 3;
 			}
 
 			.link.primary {
@@ -112,6 +113,15 @@
 				width: 100%;
 			}
 
+			&:nth-child(2n) {
+				header {
+					right: 3em;
+				}
+				.description {
+					right: 2em;
+					text-align: right;
+				}
+			}
 
 			&:nth-child(3n - 3) {
 				&:before {
@@ -166,7 +176,19 @@
 				h3 {
 					font-size: 1em;
 				}
-				p {
+				.description {
+					width: 18em;
+				}
+				&:nth-child(2n) {
+					header {
+						left: 1em;
+					}
+					.description {
+						left: 1em;
+						text-align: left;
+					}
+				}
+				.major > p {
 					display: none;
 				}
 			}

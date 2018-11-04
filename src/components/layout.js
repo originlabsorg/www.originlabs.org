@@ -7,18 +7,18 @@ import '../assets/scss/main.scss'
 
 class Layout extends React.Component {
     state = {
-        loading: true
+        loading: true, 
     }
 
     componentDidMount () {
         this.timeoutId = setTimeout(() => {
-            this.setState({loading: false});
+            this.setState({loading: false})
         }, 100);
     }
 
     componentWillUnmount () {
         if (this.timeoutId) {
-            clearTimeout(this.timeoutId);
+            clearTimeout(this.timeoutId)
         }
     }
 
@@ -40,11 +40,11 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
 }
 
 Layout.defaultProps = {
-    children: null
+    children: null,
 }
 
 export default Layout
