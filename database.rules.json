@@ -1,0 +1,13 @@
+{
+    "rules": {
+      ".read": false,
+      ".write": false,
+  
+      "submissions": {
+        "$submission": {
+          ".read": false,
+          ".write": "!data.exists()"
+        }
+      }
+    }
+  }
