@@ -9,8 +9,8 @@ const HomeIndex = () => (
         <Helmet
             title="Gatsby Starter - Forty"
             meta={[
-                { name: 'description', content: 'Sample' },
-                { name: 'keywords', content: 'sample, something' },
+                { name: 'description', content: 'OriginLabs' },
+                { name: 'keywords', content: 'homepage' },
             ]}
         >
         </Helmet>

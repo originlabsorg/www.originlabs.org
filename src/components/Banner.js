@@ -12,7 +12,7 @@ const Banner = () => (
                 <p>A responsive site template designed by HTML5 UP<br />
                 and released under the Creative Commons.</p>
                 <ul className="actions">
-                    <li><a href="#one" className="button next scrolly">Get In Touch</a></li>
+                    <li><a href="#contact" className="button next scrolly">Get In Touch</a></li>
                 </ul>
             </div>
         </div>
