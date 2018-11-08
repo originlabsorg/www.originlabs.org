@@ -1,0 +1,82 @@
+# Name of the property. You can have multiple properties with completely
+# different config blocks for different sections of your site.
+# For example, you can have one property to handle comment submission and
+# another one to handle posts.
+comments:
+  # (*) REQUIRED
+  #
+  # Names of the fields the form is allowed to submit. If a field that is
+  # not here is part of the request, an error will be thrown.
+  allowedFields: ["name", "email", "url", "message"]
+
+  # (*) REQUIRED
+  #
+  # Name of the branch being used. Must match the one sent in the URL of the
+  # request.
+  branch: "master"
+
+  # Text to use as the commit message or pull request title. Accepts placeholders.
+  commitMessage: "New message from {fields.name}"
+
+  # (*) REQUIRED
+  #
+  # Destination path (filename) for the data files. Accepts placeholders.
+  filename: "contact-{@timestamp}"
+
+  # The format of the generated data files. Accepted values are "json", "yaml"
+  # or "frontmatter"
+  format: "yaml"
+
+  # List of fields to be populated automatically by Staticman and included in
+  # the data file. Keys are the name of the field. The value can be an object
+  # with a `type` property, which configures the generated field, or any value
+  # to be used directly (e.g. a string, number or array)
+  generatedFields:
+    date:
+      type: date
+      options:
+        format: "iso8601"
+
+  # Whether entries need to be appproved before they are published to the main
+  # branch. If set to `true`, a pull request will be created for your approval.
+  # Otherwise, entries will be published to the main branch automatically.
+  moderation: true
+
+  # Name of the site. Used in notification emails.
+  name: "originlabs.com"
+
+  # Notification settings. When enabled, users can choose to receive notifications
+  # via email when someone adds a reply or a new comment. This requires an account
+  # with Mailgun, which you can get for free at http://mailgun.com.
+  #notifications:
+    # Enable notifications
+    #enabled: true
+
+    # (!) ENCRYPTED
+    #
+    # Mailgun API key
+    #apiKey: "1q2w3e4r"
+
+    # (!) ENCRYPTED
+    #
+    # Mailgun domain (encrypted)
+    #domain: "4r3e2w1q"
+
+  # (*) REQUIRED
+  #
+  # Destination path (directory) for the data files. Accepts placeholders.
+  path: "_data/comments/{options.slug}"
+
+  # Names of required fields. If any of these isn't in the request or is empty,
+  # an error will be thrown.
+  requiredFields: ["name", "email", "message"]
+
+  # List of transformations to apply to any of the fields supplied. Keys are
+  # the name of the field and values are possible transformation types.
+  transforms:
+    email: md5
+
+  reCaptcha:
+    enabled: true
+    siteKey: "6Lc2dXkUAAAAAL6hepoPO4BYkTI_uRzQ8xR92kvy"
+    secret: DAdCdBYBho/WcGWzC+VfJA1oYwmyYftgKCsW9S1m/SdepmSaSdtGZoj6SeZBB9N3XVioWQlPd5N/FyE8YbFn/oIDFnc+J+2myK8IHP7yivuaEfUR1fgApAlf4TROE90mlQ1zOrFLiTuFq2zIDF9dZlVtNQzreBI8yA37utIb54geXAvqukoehFSTNDjZis0NEgLCaKCxtB9E56uDCVHX8G6ODU/dftdoGxryHOojj9rfHWAFoJ3tslNhCkUixQLt41bJRVfKAXWu2v6FNI1bl1F2McetNUwrd9QTFY7qjJwadzVbO18jQ5MAjvRJvko3RN3SxOPpHJ9RAquj32n7StyzBCQRkmO/l+SkYOjySO85Qob9DIfjuK2sxxoUNFOkpTIu5mlDwirh7anD2IsucuYuLMpzzhjzOlqU4/jbMSQhx7YmFI5nZo1MuqNfrKJxVvz95Jo5ctWuFhR7hUfXFmlwvPJ8+4VJvnhpauspfz1Q2kgZPFDQDzww47rsUtKWJx7RRyBFvDqqgxw5jPJRMX8MnfoENrHKz13VY5SzuIstNmw6q91j/pprOt6FZQqyqNxqbXVt/bYJP/PU5yN3lsvhzz0V9ic3hQ40ccpmkZO3O2uPA/PBfey7DrLhp2YHE+KcXridOzmxwHolN8U4xcahbCw4Fogt54B4od9Qbts=
