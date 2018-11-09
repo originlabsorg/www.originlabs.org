@@ -1,11 +1,11 @@
 import React from 'react'
 import Recaptcha from 'react-recaptcha'
-import keys from '../../keys'
+import { reCaptcha } from '../config'
 
 const CustomRecaptcha = ({ callback }) => (
     <Recaptcha
         className="g-recaptcha"
-        sitekey={keys.recaptcha.siteKey}
+        sitekey={reCaptcha.siteKey}
         theme="dark"
         onloadCallback={callback}
     />

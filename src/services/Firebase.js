@@ -1,10 +1,10 @@
 import firebase from 'firebase';
 import 'firebase/database';
-import config from '../config/firebaseConfig';
+import {firebase as firebaseConfig } from '../config';
 
 class Firebase {
     constructor() {
-        firebase.initializeApp(config);
+        firebase.initializeApp(firebaseConfig);
         this.database = firebase.database;
     }
 }
