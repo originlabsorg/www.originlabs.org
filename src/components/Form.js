@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
 import firebase from '../services/Firebase'
-import serialize from '../libs/serialize'
-import CustomRecaptcha from './Recaptcha'
+import CustomRecaptcha from './CustomRecaptcha'
 import { reCaptcha, staticmanEndpoint } from '../config'
+
+const submitForm = (table, onSuccess, onError) => {
+    (function($) {
+        $.ajax({
+            type: 'POST',
+            url: staticmanEndpoint,
+            data: $(table).serialize(),
+            contentType: "application/x-www-form-urlencoded",
+            success: (data) => onSuccess(data),
+            error: (err) => onError(err)
+        })
+    })(jQuery)
+}
 
 class Form extends Component {
     state = {
@@ -15,42 +27,58 @@ class Form extends Component {
     }
 
     handleFieldChange = (ev) => {
-        const target = ev.target;
-        const value = target.value;
+        const target = ev.target
+        const value = target.value
         const inputName = target.getAttribute('id')
         this.setState({ [inputName]: value })
     }
 
+    onSuccess = (res) => {
+        this.setState({
+            submissionResponse: 'The contact form was successfully submitted!',
+            sendingButtonMessage: 'Message sent!'
+        })
+        this.resetForm()
+    }
+
+    onError = (err) => {
+        this.setState({
+            submissionResponse: 'There was an error with the submission, please try again later!',
+        })
+    }
+
+    resetForm = () => this.setState({ name:'', email:'', message:'' })
+
+    clearSubmissionResponse = () => this.setState({ submissionResponse: '' })
+
     handleFormSubmit = (ev) => {
-        console.log('here')
         ev.preventDefault()
+        const { name, email, message } = this.state
         this.setState({ sendingButtonMessage: 'Sending...' })
-        firebase.database().ref('/contacts').push(this.state)
-            .then(function() {
-                console.log('Contacts added successfully')
+
+        // save form to firebase
+        firebase
+            .database()
+            .ref('/contacts')
+            .push({
+                name,
+                email,
+                message,
             })
-            .catch(function(error) {
-                console.log('Something went wrong!')
-            });
+            .then(() => {
+                this.setState({ submissionResponse: 'Processing...' })
+                
+            })
+            .catch((error) => {
+                this.setState({ submissionResponse: 'Something went wrong!' })
+            })
 
-        fetch(
-            staticmanEndpoint[process.env.NODE_ENV],
-            {
-                method:'POST',
-                headers: new Headers({
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                }),
-                data: 'fields%5Bname%5D=Bogdan+Vidican&fields%5Bemail%5D=bogdanvidican%40gmail.com&fields%5Burl%5D=&fields%5Bmessage%5D=TESTING THIS MOFO!!!!!!!'
-            }
-        )
-
-        this.setState({ sendingButtonMessage: 'Message sent!' })
+        // submit form to staticman server
+        submitForm(ev.target, this.onSuccess, this.onError)
     }
 
     checkCaptcha = (res) => {
-        // this.setState({ reCaptcha: res, submissionResponse: res.message })
-        this.setState({ submissionResponse: 'Test message!' })
-        console.log('callback has fired!!!!', res)
+        this.setState({ reCaptchaCheck: res.length && true })
     }
 
     render() {
@@ -60,8 +88,7 @@ class Form extends Component {
                 <form
                     method="post"
                     onSubmit={this.handleFormSubmit}
-                    // action={staticmanEndpoint[process.env.NODE_ENV]}
-                    action={staticmanEndpoint['production']}
+                    onChange={this.clearSubmissionResponse}
                 >
                     <input name="options[slug]" type="hidden" value=""></input>
                     <input
@@ -118,7 +145,7 @@ class Form extends Component {
                                 type="submit"
                                 value={sendingButtonMessage}
                                 className="special"
-                                disabled={reCaptchaCheck}
+                                disabled={!reCaptchaCheck}
                             />
                         </li>
                         <li>

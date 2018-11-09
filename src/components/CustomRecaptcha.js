@@ -7,7 +7,7 @@ const CustomRecaptcha = ({ callback }) => (
         className="g-recaptcha"
         sitekey={reCaptcha.siteKey}
         theme="dark"
-        onloadCallback={callback}
+        verifyCallback={callback}
     />
 )
 
