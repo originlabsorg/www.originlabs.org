@@ -1,12 +1,13 @@
 module.exports = {
   pathPrefix: '/originlabs.org',
   siteMetadata: {
-    title: "Gatsby Starter - Forty V2",
-    author: "Hunter Chang",
-    description: "A Gatsby.js V2 Starter based on Forty by HTML5 UP"
+    title: "OriginLabs",
+    author: "OriginLabs",
+    description: "Homepage based on Forty by HTML5 UP"
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-recaptcha',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

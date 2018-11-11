@@ -2,18 +2,17 @@ import React, { Component } from 'react'
 import firebase from '../services/Firebase'
 import CustomRecaptcha from './CustomRecaptcha'
 import { reCaptcha, staticmanEndpoint } from '../config'
+import $ from "jquery";
 
 const submitForm = (table, onSuccess, onError) => {
-    (function($) {
-        $.ajax({
-            type: 'POST',
-            url: staticmanEndpoint,
-            data: $(table).serialize(),
-            contentType: "application/x-www-form-urlencoded",
-            success: (data) => onSuccess(data),
-            error: (err) => onError(err)
-        })
-    })(jQuery)
+    $.ajax({
+        type: 'POST',
+        url: staticmanEndpoint,
+        data: $(table).serialize(),
+        contentType: "application/x-www-form-urlencoded",
+        success: (data) => onSuccess(data),
+        error: (err) => onError(err)
+    })
 }
 
 class Form extends Component {
@@ -33,7 +32,7 @@ class Form extends Component {
         this.setState({ [inputName]: value })
     }
 
-    onSuccess = (res) => {
+    onSuccess = () => {
         this.setState({
             submissionResponse: 'The contact form was successfully submitted!',
             sendingButtonMessage: 'Message sent!'
@@ -41,7 +40,7 @@ class Form extends Component {
         this.resetForm()
     }
 
-    onError = (err) => {
+    onError = () => {
         this.setState({
             submissionResponse: 'There was an error with the submission, please try again later!',
         })
