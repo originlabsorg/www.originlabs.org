@@ -1,15 +1,14 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    title: "Origin Labs",
-    author: "Origin Labs",
-    description: "Origin Labs Homepage"
+    title: 'Origin Labs',
+    author: 'Origin Labs',
+    description: 'Origin Labs Homepage',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-recaptcha',
     'gatsby-plugin-sass',
-    // 'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -25,11 +24,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-129684269-1",
+        trackingId: 'UA-129684269-1',
         head: false,
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: "originlabs.org",
+        cookieDomain: 'originlabs.org',
       },
+    },
   ],
 }
