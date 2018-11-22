@@ -25,6 +25,17 @@ class Form extends Component {
     submissionResponse: '',
   }
 
+  initState = () => {
+    this.setState({
+      name: '',
+      email: '',
+      message: '',
+      reCaptchaCheck: false,
+      sendingButtonMessage: 'Send Message',
+      submissionResponse: '',
+    })
+  }
+
   handleFieldChange = ev => {
     const target = ev.target
     const value = target.value
@@ -46,8 +57,6 @@ class Form extends Component {
         'There was an error with the submission, please try again later!',
     })
   }
-
-  resetForm = () => this.setState({ name: '', email: '', message: '' })
 
   clearSubmissionResponse = () => this.setState({ submissionResponse: '' })
 
@@ -76,7 +85,15 @@ class Form extends Component {
   }
 
   checkCaptcha = res => {
-    this.setState({ reCaptchaCheck: !!res && true })
+    this.setState({
+      reCaptchaCheck: !!res && true,
+      sendingButtonMessage: 'Send Message'
+    })
+  }
+
+  resetForm = () => {
+    this.reCaptcha.reset()
+    this.initState()
   }
 
   render() {
@@ -143,7 +160,7 @@ class Form extends Component {
             {submissionResponse && <p>{submissionResponse}</p>}
           </div>
           <Reaptcha
-            // inject={false}
+            ref={el => (this.reCaptcha = el)}
             sitekey={reCaptcha.siteKey}
             theme="dark"
             onVerify={this.checkCaptcha}
@@ -158,7 +175,7 @@ class Form extends Component {
               />
             </li>
             <li>
-              <input type="reset" value="Clear" />
+              <input type="reset" value="Clear"  onClick={this.resetForm}/>
             </li>
           </ul>
         </form>
