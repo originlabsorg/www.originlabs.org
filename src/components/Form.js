@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import firebase from '../services/Firebase'
+// import firebase from '../services/Firebase'
 import CustomRecaptcha from './CustomRecaptcha'
 import { reCaptcha, staticmanEndpoint } from '../config'
 import $ from "jquery";
@@ -56,17 +56,17 @@ class Form extends Component {
         this.setState({ sendingButtonMessage: 'Sending...' })
 
         // save form to firebase
-        firebase
-            .database()
-            .ref('/contacts')
-            .push(data)
-            .then(() => {
-                this.setState({ submissionResponse: 'Processing...' })
+        // firebase
+        //     .database()
+        //     .ref('/contacts')
+        //     .push(data)
+        //     .then(() => {
+        //         this.setState({ submissionResponse: 'Processing...' })
 
-            })
-            .catch((error) => {
-                this.setState({ submissionResponse: 'Something went wrong!' })
-            })
+        //     })
+        //     .catch((error) => {
+        //         this.setState({ submissionResponse: 'Something went wrong!' })
+        //     })
 
         // submit form to staticman server
         const data = $(ev.target).serialize()
