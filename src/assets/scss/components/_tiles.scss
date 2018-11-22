@@ -147,21 +147,21 @@
 		article {
 			padding-top: 1em;
 			padding-left: 2em;
+			padding-right: 2em;
+			padding-bottom: 1em;
 		}
 	}
 
 	@include breakpoint(medium) {
 		article {
-			padding-top: 1em;
-			padding-left: 1em;
+			padding: 1em;
 			width: 100% !important;
 		}
 	}
 
 	@include breakpoint(small) {
 		article {
-			padding-top: 1em;
-			padding-left: 1em;
+			padding: 1em;
 			h3 {
 				font-size: 1em;
 			}
@@ -170,26 +170,13 @@
 
 	@include breakpoint(xsmall) {
 		article {
-			padding-top: 1em;
-			padding-left: 1em;
+			padding: 1em;
 			width: 100% !important;
 			h3 {
 				font-size: 1em;
 			}
 			.description {
 				width: 18em;
-			}
-			&:nth-child(2n) {
-				header {
-					left: 1em;
-				}
-				.description {
-					left: 1em;
-					text-align: left;
-				}
-			}
-			.major > p {
-				display: none;
 			}
 		}
 	}

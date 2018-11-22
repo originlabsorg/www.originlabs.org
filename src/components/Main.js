@@ -62,14 +62,14 @@ const Main = () => (
                 <a href="https://www.taskrabbit.com">
                   <div className="logo-wide" style={{backgroundImage: `url(${taskrabbit})`}}></div>
                 </a>
-                <a href="https://www.carbonfive.com">
-                  <div className="logo-wide" style={{backgroundImage: `url(${carbonfive})`}}></div>
+                <a href="https://www.enova.com">
+                  <div className="logo-wide" style={{backgroundImage: `url(${enova})`}}></div>
                 </a>
                 <a href="https://www.tablexi.com">
                   <div className="logo-wide" style={{backgroundImage: `url(${tablexi})`}}></div>
                 </a>
-                <a href="https://www.enova.com">
-                  <div className="logo-wide" style={{backgroundImage: `url(${enova})`}}></div>
+                <a href="https://www.carbonfive.com">
+                  <div className="logo-wide" style={{backgroundImage: `url(${carbonfive})`}}></div>
                 </a>
               </div>
             </div>
