@@ -1,1 +1,1 @@
-export default 'https://staticmanserver.herokuapp.com/v2/entry/bogdanvidican/staticman/master/comments';
+export default 'https://staticman3.herokuapp.com/v2/entry/originlabsorg/originlabs.org/master';

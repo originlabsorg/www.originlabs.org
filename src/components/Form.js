@@ -4,11 +4,11 @@ import CustomRecaptcha from './CustomRecaptcha'
 import { reCaptcha, staticmanEndpoint } from '../config'
 import $ from "jquery";
 
-const submitForm = (table, onSuccess, onError) => {
+const submitForm = (formData, onSuccess, onError) => {
     $.ajax({
         type: 'POST',
         url: staticmanEndpoint,
-        data: $(table).serialize(),
+        data: formData,
         contentType: "application/x-www-form-urlencoded",
         success: (data) => onSuccess(data),
         error: (err) => onError(err)
@@ -59,21 +59,19 @@ class Form extends Component {
         firebase
             .database()
             .ref('/contacts')
-            .push({
-                name,
-                email,
-                message,
-            })
+            .push(data)
             .then(() => {
                 this.setState({ submissionResponse: 'Processing...' })
-                
+
             })
             .catch((error) => {
                 this.setState({ submissionResponse: 'Something went wrong!' })
             })
 
         // submit form to staticman server
-        submitForm(ev.target, this.onSuccess, this.onError)
+        const data = $(ev.target).serialize()
+        console.log("Form Data:", data)
+        submitForm(data, this.onSuccess, this.onError)
     }
 
     checkCaptcha = (res) => {
@@ -102,7 +100,7 @@ class Form extends Component {
                     />
                     <div className="field half first">
                         <label htmlFor="name">Name</label>
-                        <input 
+                        <input
                             type="text"
                             name="fields[name]"
                             id="name"
