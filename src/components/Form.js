@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import firebase from '../services/Firebase'
-import CustomRecaptcha from './CustomRecaptcha'
+import Reaptcha from 'reaptcha';
 import { reCaptcha, staticmanEndpoint } from '../config'
 import $ from 'jquery'
 
@@ -53,7 +53,7 @@ class Form extends Component {
 
   handleFormSubmit = ev => {
     ev.preventDefault()
-    const { name, email, message } = this.state
+    // const { name, email, message } = this.state
     this.setState({ sendingButtonMessage: 'Sending...' })
 
     // save form to firebase
@@ -76,7 +76,7 @@ class Form extends Component {
   }
 
   checkCaptcha = res => {
-    this.setState({ reCaptchaCheck: res.length && true })
+    this.setState({ reCaptchaCheck: !!res && true })
   }
 
   render() {
@@ -142,7 +142,12 @@ class Form extends Component {
           <div className="field">
             {submissionResponse && <p>{submissionResponse}</p>}
           </div>
-          <CustomRecaptcha callback={this.checkCaptcha} />
+          <Reaptcha
+            // inject={false}
+            sitekey={reCaptcha.siteKey}
+            theme="dark"
+            onVerify={this.checkCaptcha}
+          />
           <ul className="actions">
             <li>
               <input

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import pic01 from '../assets/images/mobile.png'
 import pic02 from '../assets/images/web.png'
 import pic03 from '../assets/images/data.png'
