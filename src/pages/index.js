@@ -7,10 +7,12 @@ import Main from '../components/Main'
 const HomeIndex = () => (
     <Layout>
         <Helmet
-            title="Gatsby Starter - Forty"
+            title="Origin Labs"
             meta={[
-                { name: 'description', content: 'OriginLabs' },
+                { name: 'description', content: 'Origin Labs' },
                 { name: 'keywords', content: 'homepage' },
+                { name: 'keywords', content: 'origin' },
+                { name: 'keywords', content: 'labs' },
             ]}
         >
         </Helmet>

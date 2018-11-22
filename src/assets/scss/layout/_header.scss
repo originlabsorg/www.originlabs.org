@@ -28,6 +28,11 @@
 		width: 100%;
 		z-index: _misc(z-index-base);
 
+		.icon {
+			position: absolute;
+			top: -5px;
+		}
+
 		.logo {
 			border: 0;
 			display: inline-block;
