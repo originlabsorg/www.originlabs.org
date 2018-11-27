@@ -25,7 +25,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-129684269-1',
-        head: false,
+        head: true,
         sampleRate: 5,
         siteSpeedSampleRate: 10,
         cookieDomain: 'originlabs.org',
