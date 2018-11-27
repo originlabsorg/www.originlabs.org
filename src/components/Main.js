@@ -19,22 +19,24 @@ const Main = () => (
     <section id="one" className="tiles">
       <article style={{ backgroundImage: `url(${pic01})` }}>
         <header className="major">
-          <h3>Mobile Applications</h3>
-          <p>Cross-Paltform Mobile Development</p>
+          <h3>Custom Development</h3>
+          <p>Cross-Platform Applications and Infrastructure</p>
         </header>
         <p className="description">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged.
+          Our team is pretty handy when it comes to building products! We have helped our clients with a variety of software needs using many popular languages and frameworks.
+          <ul>
+          <li>Cross Platform App Development</li>
+          <li>Microservice Architecture</li>
+          <li>Continuous Integration & Delivery</li>
+          <li>Legacy Re-engineering</li>
+          <li>Data Science and Big Data</li>
+          </ul>
         </p>
       </article>
       <article style={{ backgroundImage: `url(${pic02})` }}>
         <header className="major">
-          <h3>Web Applications</h3>
-          <p>Cross-Platform Web Development</p>
+          <h3>UI/UX Design</h3>
+          <p>Branding, Interaction and User Experience </p>
         </header>
         <p className="description">
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -47,8 +49,8 @@ const Main = () => (
       </article>
       <article style={{ backgroundImage: `url(${pic03})` }}>
         <header className="major">
-          <h3>Big Data</h3>
-          <p>Lorem etiam nullam</p>
+          <h3>Management and Strategy</h3>
+          <p>Agile Team Management, Product Research and Roadmapping</p>
         </header>
         <p className="description">
           Lorem Ipsum is simply dummy text of the printing and typesetting

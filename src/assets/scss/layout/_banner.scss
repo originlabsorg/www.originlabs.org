@@ -10,7 +10,6 @@
 		@include vendor('background-image', 'url("../images/banner.png")');
 		@include vendor('display', 'flex');
 		@include padding(2em, 0, (2em, 0, 0, 0));
-		// background-attachment: fixed;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -30,7 +29,7 @@
 			display: block;
 			height: 100%;
 			left: 0;
-			opacity: 0.5;
+			opacity: 0.2;
 			position: absolute;
 			top: 0;
 			width: 100%;

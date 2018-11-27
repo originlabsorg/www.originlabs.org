@@ -4,15 +4,11 @@ import React from 'react'
 const Banner = () => (
   <section id="banner" className="major">
     <div className="inner">
-      {/* <header className="major" style={headerStyle}>
-                <h1>Origin Labs</h1>
-                <derspan className="icon fa-flask"></derspan>
-            </header> */}
       <div className="content">
         <p>
-          A responsive site template designed by HTML5 UP
+          We are a digital products studio located in the
           <br />
-          and released under the Creative Commons.
+          San Francisco Bay Area
         </p>
         <ul className="actions">
           <li>

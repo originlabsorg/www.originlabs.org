@@ -57,9 +57,14 @@
 
 		.description {
 			position: absolute;
-			width: 20em;
+			width: 25em;
 			top: 10em;
 			z-index: 3;
+		}
+
+		ul {
+			margin-top: 1em;
+			margin-bottom: 1em;
 		}
 
 		.link.primary {
