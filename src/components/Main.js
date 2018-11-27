@@ -23,7 +23,7 @@ const Main = () => (
           <p>Cross-Platform Applications and Infrastructure</p>
         </header>
         <p className="description">
-          Our team is pretty handy when it comes to building products! We have helped our clients with a variety of software needs using many popular languages and frameworks.
+          Our team is pretty handy when it comes to building software! Over the past 10 hears we have helped our clients overcome countless technical challenges and build incredible products using modern tools and frameworks.
           <ul>
           <li>Cross Platform App Development</li>
           <li>Microservice Architecture</li>
@@ -35,30 +35,33 @@ const Main = () => (
       </article>
       <article style={{ backgroundImage: `url(${pic02})` }}>
         <header className="major">
-          <h3>UI/UX Design</h3>
+          <h3>UI / UX Design</h3>
           <p>Branding, Interaction and User Experience </p>
         </header>
         <p className="description">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged.
+          We care about every little detail! At the heart of all of our products are simple and memorable user experiences. Our process is design-led, meaning we start with the user in mind and work our way down to the implementation details.
+          <ul>
+          <li>Branding</li>
+          <li>User Research & Testing</li>
+          <li>Wireframing & Storyboarding</li>
+          <li>Interaction & Experience Design</li>
+          <li>Front End Development</li>
+          </ul>
         </p>
       </article>
       <article style={{ backgroundImage: `url(${pic03})` }}>
         <header className="major">
           <h3>Management and Strategy</h3>
-          <p>Agile Team Management, Product Research and Roadmapping</p>
+          <p>Agile Team Management and Roadmapping</p>
         </header>
         <p className="description">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged.
+          By relentlessly gathering feedback we keep our clients happy and our projects on track! Our short feedback cycles allow us to build what our clients actually want while keeping the costs low.
+          <ul>
+          <li>Business Strategy</li>
+          <li>Project Management</li>
+          <li>Concept Validation</li>
+          <li>ROI Analysis</li>
+          </ul>
         </p>
       </article>
     </section>
