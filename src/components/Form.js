@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import firebase from '../services/Firebase'
+// import firebase from '../services/Firebase'
 import Reaptcha from 'reaptcha';
 import { reCaptcha, staticman } from '../config'
 import $ from 'jquery'
@@ -63,20 +63,20 @@ class Form extends Component {
   handleFormSubmit = ev => {
     ev.preventDefault()
     const { name, email, message } = this.state
-    const firebaseData = { name, email, message }
+    // const firebaseData = { name, email, message }
     this.setState({ sendingButtonMessage: 'Sending...' })
 
     // save form to firebase
-    firebase
-        .database()
-        .ref('/contacts')
-        .push(firebaseData)
-        .then(() => {
-            this.setState({ submissionResponse: 'Processing...' })
-        })
-        .catch((error) => {
-            this.setState({ submissionResponse: 'Something went wrong!' })
-        })
+    // firebase
+    //     .database()
+    //     .ref('/contacts')
+    //     .push(firebaseData)
+    //     .then(() => {
+    //         this.setState({ submissionResponse: 'Processing...' })
+    //     })
+    //     .catch((error) => {
+    //         this.setState({ submissionResponse: 'Something went wrong!' })
+    //     })
 
     // submit form to staticman server
     const formData = $(ev.target).serialize()
@@ -110,7 +110,6 @@ class Form extends Component {
           method="post"
           onSubmit={this.handleFormSubmit}
           onChange={this.clearSubmissionResponse}>
-          <input name="options[slug]" type="hidden" value="" />
           <div className="field half first">
             <label htmlFor="name">Name</label>
             <input
