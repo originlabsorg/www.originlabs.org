@@ -25,9 +25,6 @@ module.exports = {
       options: {
         trackingId: 'UA-129684269-1',
         head: true,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: 'originlabs.org',
       },
     },
   ],
