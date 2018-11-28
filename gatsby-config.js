@@ -7,7 +7,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-recaptcha',
     'gatsby-plugin-sass',
     {
       resolve: `gatsby-plugin-manifest`,

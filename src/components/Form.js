@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-// import firebase from '../services/Firebase'
+import firebase from '../services/Firebase'
 import Reaptcha from 'reaptcha';
-import { reCaptcha, staticmanEndpoint } from '../config'
+import { reCaptcha, staticman } from '../config'
 import $ from 'jquery'
 
 const submitForm = (formData, onSuccess, onError) => {
   $.ajax({
     type: 'POST',
-    url: staticmanEndpoint,
+    url: staticman.endpoint,
     data: formData,
     contentType: 'application/x-www-form-urlencoded',
     success: data => onSuccess(data),
@@ -20,17 +20,17 @@ class Form extends Component {
     name: '',
     email: '',
     message: '',
-    reCaptchaCheck: false,
+    reCaptchaVerified: false,
     sendingButtonMessage: 'Send Message',
     submissionResponse: '',
   }
 
-  initState = () => {
+  resetState = () => {
     this.setState({
       name: '',
       email: '',
       message: '',
-      reCaptchaCheck: false,
+      reCaptchaVerified: false,
       sendingButtonMessage: 'Send Message',
       submissionResponse: '',
     })
@@ -62,38 +62,37 @@ class Form extends Component {
 
   handleFormSubmit = ev => {
     ev.preventDefault()
-    // const { name, email, message } = this.state
+    const { name, email, message } = this.state
+    const firebaseData = { name, email, message }
     this.setState({ sendingButtonMessage: 'Sending...' })
 
     // save form to firebase
     firebase
         .database()
         .ref('/contacts')
-        .push(data)
+        .push(firebaseData)
         .then(() => {
             this.setState({ submissionResponse: 'Processing...' })
-
         })
         .catch((error) => {
             this.setState({ submissionResponse: 'Something went wrong!' })
         })
 
     // submit form to staticman server
-    const data = $(ev.target).serialize()
-    console.log('Form Data:', data)
-    submitForm(data, this.onSuccess, this.onError)
+    const formData = $(ev.target).serialize()
+    submitForm(formData, this.onSuccess, this.onError)
   }
 
   checkCaptcha = res => {
     this.setState({
-      reCaptchaCheck: !!res && true,
+      reCaptchaVerified: !!res && true,
       sendingButtonMessage: 'Send Message'
     })
   }
 
   resetForm = () => {
     this.reCaptcha.reset()
-    this.initState()
+    this.resetState()
   }
 
   render() {
@@ -101,7 +100,7 @@ class Form extends Component {
       name,
       email,
       message,
-      reCaptchaCheck,
+      reCaptchaVerified,
       sendingButtonMessage,
       submissionResponse,
     } = this.state
@@ -112,16 +111,6 @@ class Form extends Component {
           onSubmit={this.handleFormSubmit}
           onChange={this.clearSubmissionResponse}>
           <input name="options[slug]" type="hidden" value="" />
-          <input
-            type="hidden"
-            name="options[reCaptcha][siteKey]"
-            value={reCaptcha.siteKey}
-          />
-          <input
-            type="hidden"
-            name="options[reCaptcha][secret]"
-            value={reCaptcha.encryptedSecretKey}
-          />
           <div className="field half first">
             <label htmlFor="name">Name</label>
             <input
@@ -171,7 +160,7 @@ class Form extends Component {
                 type="submit"
                 value={sendingButtonMessage}
                 className="special"
-                disabled={!reCaptchaCheck}
+                disabled={!reCaptchaVerified}
               />
             </li>
             <li>
