@@ -23,7 +23,7 @@ const Main = () => (
           <p>Cross-Platform Applications and Infrastructure</p>
         </header>
         <p className="description">
-          Our team is pretty handy when it comes to building software! Over the past 10 hears we have helped our clients overcome countless technical challenges and build incredible products using modern tools and frameworks.
+          Our team is pretty handy when it comes to building software! Over the past 10 years we have helped our clients overcome countless technical challenges and build incredible products using modern tools and frameworks.
           <ul>
           <li>Cross Platform App Development</li>
           <li>Microservice Architecture</li>
